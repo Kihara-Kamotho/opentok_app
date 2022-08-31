@@ -73,3 +73,9 @@ end
 
 # devise; user authentication
 gem 'devise', '~> 4.8', '>= 4.8.1'
+
+# opentok 
+gem 'opentok', '~> 4.4'
+
+# figaro; env vars mgt 
+gem 'figaro'
