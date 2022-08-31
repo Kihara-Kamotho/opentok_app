@@ -1,0 +1,8 @@
+<% @rooms.each do |room| %>
+  <div>
+    <%= room.name %>
+  </div>
+  <div>
+    <%= link_to 'room', room_path(room) %>
+  </div>
+<% end %>
