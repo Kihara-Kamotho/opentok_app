@@ -1,3 +1,10 @@
 <%# room#show %>
 
 <%= @room.name %>
+
+<!-- stimulus ctrl -->
+<div id="videos"
+     data-controller="vonage"
+     data-vonage-token="<%= @token %>"
+     data-vonage-api-key="<%= ENV["api_key"] %>"
+     data-vonage-session-id="<%= @room.vonage_session_id %>">video frame</div>

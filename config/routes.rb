@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   root 'landing#index'
 
   resources :rooms
+
+  get '/landing/broadcast'
+  post '/landing/broadcast', to: 'landing#broadcast'
+
 end
