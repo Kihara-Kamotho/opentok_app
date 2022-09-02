@@ -17,6 +17,15 @@
   </head>
 
   <body>
+    <div class='scope-user'>
+      <% if user_signed_in? %>
+        <p>Hello <%= current_user.email %></p>
+        <%= button_to 'logout', destroy_user_session_url, method: :delete %>
+      <% else %>
+        <%= link_to 'sign up', new_user_registration_url %>
+        <%= link_to 'sign in', new_user_session_url %>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
