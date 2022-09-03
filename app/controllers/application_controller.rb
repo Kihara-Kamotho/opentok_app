@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
-  
+  # include Pundit (module)
+  include Pundit
+
   private
   def after_sign_up_path(user) 
     redirect_to root_path

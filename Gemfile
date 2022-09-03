@@ -82,3 +82,6 @@ gem 'figaro'
 
 # rolify for user authorization
 gem 'rolify' 
+
+# pundit, scalable authorization system 
+gem 'pundit'
