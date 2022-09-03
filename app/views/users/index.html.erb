@@ -1,0 +1,10 @@
+<% @users.each do |user| %>
+  <div>
+    <%= user.email %>
+  </div>
+  <div>
+    <%= user.roles.pluck(:name) %>
+  </div>
+
+  <%= link_to 'edit', edit_user_url(user) %>
+<% end %>
