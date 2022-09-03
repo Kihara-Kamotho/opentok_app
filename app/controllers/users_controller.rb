@@ -1,10 +1,14 @@
 class UsersController < ApplicationController 
   def index
-    if current_user.has_role? :admin  
-      @users = User.order(created_at: 'desc') 
-    else 
-      redirect_to root_path, alert: 'Not admin' 
-    end
+    @users = User.order(created_at: 'desc')
+    # if current_user.has_role? :admin  
+    #   @users = User.order(created_at: 'desc') 
+    # else 
+    #   redirect_to root_path, alert: 'Not admin' 
+    # end
+
+    # authorize users using Pundit 
+    authorize @users 
   end
   
   def edit 
