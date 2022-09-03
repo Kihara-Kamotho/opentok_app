@@ -20,6 +20,10 @@
     <div class='scope-user'>
       <% if user_signed_in? %>
         <p>Hello <%= current_user.email %></p>
+        <%# check if current_user is an admin %>
+        <p>Admin user: <%= current_user.has_role? :admin %></p>
+        <%# check roles of the current_user %>
+        <%= current_user.roles.pluck(:name) %>
         <%= button_to 'logout', destroy_user_session_url, method: :delete %>
       <% else %>
         <%= link_to 'sign up', new_user_registration_url %>

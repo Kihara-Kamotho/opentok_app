@@ -79,3 +79,6 @@ gem 'opentok', '~> 4.4'
 
 # figaro; env vars mgt 
 gem 'figaro'
+
+# rolify for user authorization
+gem 'rolify' 
