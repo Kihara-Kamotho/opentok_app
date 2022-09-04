@@ -5,16 +5,19 @@ class RoomsController < ApplicationController
   
   def index 
     @rooms = Room.all
+    # rooms policy 
+    authorize @rooms
   end 
 
   def new 
     @room = Room.new
-    authorize @room
   end 
 
   def create 
     @room = Room.new(room_params)  
+    # run policy
     authorize @room 
+
     if @room.save 
       redirect_to room_path(@room) 
     else 
@@ -28,6 +31,8 @@ class RoomsController < ApplicationController
     opentok = OpenTok::OpenTok.new(ENV["api_key"], ENV["secret_key"]) # opentok client 
     # session = opentok.create_session # new opentok session
     @token = opentok.generate_token(@room.vonage_session_id) # generate token 
+    # policy 
+    authorize @room
   end 
 
   def edit 

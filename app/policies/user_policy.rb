@@ -9,6 +9,14 @@ class UserPolicy < ApplicationPolicy
   # resembles index action in the users_controller
   def index? 
     @user # current_user 
-    @user.has_role? :admin # this method return True if current_user is an admin otherwise raises Pundit::NotAuthorized error
+    @user.has_any_role? :admin, :newuser # this method return True if current_user is an admin otherwise raises Pundit::NotAuthorized error
+  end
+
+  def edit? 
+    @user.has_role? :admin
+  end
+
+  def update? 
+    edit?
   end
 end

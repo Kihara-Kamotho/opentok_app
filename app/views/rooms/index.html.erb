@@ -7,4 +7,6 @@
   </div>
 <% end %>
 
-<%= link_to 'new room', new_room_path %>
+<% if current_user.has_role? :admin %>
+  <%= link_to 'new room', new_room_path %>
+<% end %>

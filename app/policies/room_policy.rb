@@ -6,7 +6,11 @@ class RoomPolicy < ApplicationPolicy
     end
   end
 
-  def new? 
-    @user.has_role? :admin
-  end 
+  def index?
+    true
+  end
+
+  def show?
+    @user.has_any_role? :admin, :newuser
+  end
 end
