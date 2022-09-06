@@ -9,17 +9,17 @@ class User < ApplicationRecord
   after_create :assign_default_role
 
   # make first user admin
-  around_save :make_first_user_admin
+  # around_save :make_first_user_admin
 
   validate :user_must_have_a_role, on: :update
 
   private
 
   # make the first user admin
-  def make_first_user_admin 
-    user = User.first!
-    user.add_role :admin
-  end
+  # def make_first_user_admin 
+  #   user = User.first!
+  #   user.add_role :admin
+  # end
 
   def assign_default_role
     self.add_role(:newuser) if self.roles.blank?
