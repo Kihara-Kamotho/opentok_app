@@ -25,7 +25,7 @@ class RoomsController < ApplicationController
   end 
 
   def show 
-    # @room = Room.find(params[:id]) 
+    @room = Room.find(params[:id]) 
     # generate opentok token 
     opentok = OpenTok::OpenTok.new(ENV["api_key"], ENV["secret_key"]) # opentok client 
     # session = opentok.create_session # new opentok session
