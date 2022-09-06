@@ -41,7 +41,7 @@ export default class extends Controller {
     // user joining the room, publisher
     this.publisher = OT.initPublisher(this.element, {
       insertMode: "append",
-      width: '100%',
+      width: '50%',
       height: '500px',
       name: this.data.get("name")
     }, this.handleError.bind(this))
