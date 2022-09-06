@@ -16,7 +16,6 @@ class RoomsController < ApplicationController
   def create 
     @room = Room.new(room_params)  
     # run policy
-    authorize @room 
 
     if @room.save 
       redirect_to room_path(@room) 
